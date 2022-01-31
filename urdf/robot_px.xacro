@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<!-- Necesario para que lo vean las aplciaciones en el ROSserver-->
+<robot name="robot_px" xmlns:xacro="http://ros.org/wiki/xacro">
+  <!-- Permite la inclusion de otros archivos #include-->
+
+  <!-- Macros de links y joints generalizados -->
+  <xacro:include filename="$(find px_sim)/urdf/robot_px_joints.xacro"/>
+  <!-- Import all Gazebo-customization elements, including Gazebo colors -->
+  <xacro:include filename="$(find px_sim)/urdf/robot_px.gazebo"/>
+
+  <!-- LINKS -->
+  <!-- base -->
+  <link name="base_link">
+		<visual>
+			<origin rpy="0 0 0" xyz="0 0 0"/>
+			<geometry>
+				<!-- <mesh filename="package://robot_craig_sim/meshes/ensamble/robot_craig_base_1.stl" scale="1 1 1"/> -->
+        <mesh filename="package://px_sim/meshes/Base.STL" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="gray">
+				<color rgba="0.2 0.2 0.2 1"/>
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0 0 0" xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://px_sim/meshes/Base.STL" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="yellow">
+				<color rgba="0 1 1 1"/>
+			</material>
+		</collision>
+		<inertial>
+			<mass value="26.36"/>
+			<origin xyz="-0.0820 0.0004 0.0599" rpy="0 0 0"/>
+			<inertia ixx="0.222" ixy="0" ixz="0.00156" iyy="0.3553" iyz="0.0017" izz="0.5236" />
+		</inertial>
+	</link>
+
+  <link name="link1">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <!-- <mesh filename="package://robot_craig_sim/meshes/ensamble/robot_craig_base_1.stl" scale="1 1 1"/> -->
+        <mesh filename="package://px_sim/meshes/Shoulder.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.2 0.2 0.2 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://px_sim/meshes/Shoulder.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="yellow">
+        <color rgba="0 1 1 1"/>
+      </material>
+    </collision>
+    <inertial>
+      <mass value="26.36"/>
+      <origin xyz="-0.0820 0.0004 0.0599" rpy="0 0 0"/>
+      <inertia ixx="0.222" ixy="0" ixz="0.00156" iyy="0.3553" iyz="0.0017" izz="0.5236" />
+    </inertial>
+  </link>
+
+  <link name="link2">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <!-- <mesh filename="package://robot_craig_sim/meshes/ensamble/robot_craig_base_1.stl" scale="1 1 1"/> -->
+        <mesh filename="package://px_sim/meshes/Bicep1.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.2 0.2 0.2 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://px_sim/meshes/Bicep1.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="yellow">
+        <color rgba="0 1 1 1"/>
+      </material>
+    </collision>
+    <inertial>
+      <mass value="26.36"/>
+      <origin xyz="-0.0820 0.0004 0.0599" rpy="0 0 0"/>
+      <inertia ixx="0.222" ixy="0" ixz="0.00156" iyy="0.3553" iyz="0.0017" izz="0.5236" />
+    </inertial>
+  </link>
+
+  <link name="link3">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <!-- <mesh filename="package://robot_craig_sim/meshes/ensamble/robot_craig_base_1.stl" scale="1 1 1"/> -->
+        <mesh filename="package://px_sim/meshes/Bicep2.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.2 0.2 0.2 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://px_sim/meshes/Bicep2.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="yellow">
+        <color rgba="0 1 1 1"/>
+      </material>
+    </collision>
+    <inertial>
+      <mass value="26.36"/>
+      <origin xyz="-0.0820 0.0004 0.0599" rpy="0 0 0"/>
+      <inertia ixx="0.222" ixy="0" ixz="0.00156" iyy="0.3553" iyz="0.0017" izz="0.5236" />
+    </inertial>
+  </link>
+
+  <link name="link4">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <!-- <mesh filename="package://robot_craig_sim/meshes/ensamble/robot_craig_base_1.stl" scale="1 1 1"/> -->
+        <mesh filename="package://px_sim/meshes/Wrist.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.2 0.2 0.2 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://px_sim/meshes/Wrist.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="yellow">
+        <color rgba="0 1 1 1"/>
+      </material>
+    </collision>
+    <inertial>
+      <mass value="26.36"/>
+      <origin xyz="-0.0820 0.0004 0.0599" rpy="0 0 0"/>
+      <inertia ixx="0.222" ixy="0" ixz="0.00156" iyy="0.3553" iyz="0.0017" izz="0.5236" />
+    </inertial>
+  </link>
+
+  <!-- tcp link -->
+	<link name="tcp_link"/>
+  	<joint name="tcp_joint" type="fixed">
+  		<parent link="link4"/>
+  		<child link="tcp_link"/>
+  		<origin rpy="0 0 0" xyz="0 0.09 0"/>
+  	</joint>
+
+
+  <link name="world"/>
+  <joint name="fixed" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
+
+</robot>

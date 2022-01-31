@@ -1,0 +1,40 @@
+<launch>
+		<!--Cargar mundo en gazebo-->
+		<include file="$(find gazebo_ros)/launch/empty_world.launch">
+			<!-- Parametros propios de Gazebo -->
+			<arg name="paused" value="false"/>
+		  <arg name="use_sim_time" value="true"/>
+		  <arg name="gui" value="true"/>
+		  <arg name="recording" value="false"/>
+		  <arg name="debug" value="false"/>
+			<!-- <arg name="world_name" value="$(find irb140_sim)/worlds/bin_picking.world"/> -->
+		</include>
+
+		<!--Cargar robot-->
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find px_sim)/urdf/robot_px.xacro'" />
+		<arg name="x" default="0"/>
+		<arg name="y" default="0"/>
+		<arg name="z" default="0"/>
+
+		<!--spawnear robot-->
+		<node name="robot_px_gazebo" pkg="gazebo_ros" type="spawn_model" output="screen"
+					args="-urdf -param robot_description -model robot_px -x $(arg x) -y $(arg y) -z $(arg z)"/>
+
+		<!--Cargar controladores-->
+
+		<rosparam command="load" file="$(find px_sim)/config/joints.yaml" />
+
+		<!--Controladores-->
+		<node name="controller_spawner" pkg="controller_manager" type="spawner"
+					respawn="false" output="screen" ns="/robot_px"
+					args="--namespace=/robot_px
+					joint_state_controller
+					arm_controller"/>
+
+		<!-- convert joint states to TF transforms for rviz, etc -->
+		<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+			respawn="false" output="screen">
+			<remap from="/joint_states" to="/robot_px/joint_states" />
+		</node>
+
+</launch>

@@ -1,0 +1,8 @@
+<launch>
+	<!-- send joint values -->
+	<node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui">
+    <remap from="/joint_states" to="/robot_craig/joint_states" />
+	  <param name="use_gui" value="True"/>
+	</node>
+
+</launch>

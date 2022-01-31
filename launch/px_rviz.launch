@@ -1,0 +1,19 @@
+<launch>
+	<!-- Cargar la descripcion del robot al ROSserver - Ojo con la ruta-->
+	<param name="robot_description" command="$(find xacro)/xacro --inorder '$(find px_sim)/urdf/robot_px.xacro'" />
+
+	<!-- combine joint values -->
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+		<remap from="joint_states" to="dynamixel_workbench/joint_states"/>
+	</node>
+
+	<!-- Show in Rviz -->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find px_sim)/config/cfg.rviz"/>
+
+	<!-- send joint values -->
+	<!-- <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui">
+	  <param name="use_gui" value="True"/>
+	  
+	</node> -->
+	
+</launch>

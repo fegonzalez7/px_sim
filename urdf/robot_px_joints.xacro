@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<!--Version del xacro-->
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+ 	<!--Joints-->
+	<!--joint1-->
+	<joint name="joint_1" type="revolute">
+    <origin rpy="0 0 0" xyz="0 0 0.0895"/> <!--Modifica la posicion respecto al link parent-->
+    <parent link="base_link"/>
+    <child link="link1"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="1000" lower="-3.1416" upper="3.1416" velocity="2.618"/>
+  </joint>
+	<!--Definicion del tipo de controlador-->
+  <transmission name="trans_joint_1">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="joint_1">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor_joint_1">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+  </transmission>
+
+	<!--joint1-->
+	<joint name="joint_2" type="revolute">
+		<origin rpy="1.57 0 0" xyz="0 0 0.0415"/> <!--Modifica la posicion respecto al link parent-->
+		<parent link="link1"/>
+		<child link="link2"/>
+		<axis xyz="0 0 1"/>
+		<limit effort="1000" lower="-3.1416" upper="3.1416" velocity="2.618"/>
+	</joint>
+	<!--Definicion del tipo de controlador-->
+	<transmission name="trans_joint_2">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="joint_2">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor_joint_2">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<joint name="joint_3" type="revolute">
+		<origin rpy="0 0 0" xyz="0 0.1065 0"/> <!--Modifica la posicion respecto al link parent-->
+		<parent link="link2"/>
+		<child link="link3"/>
+		<axis xyz="0 0 1"/>
+		<limit effort="1000" lower="-3.1416" upper="3.1416" velocity="2.618"/>
+	</joint>
+	<!--Definicion del tipo de controlador-->
+	<transmission name="trans_joint_3">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="joint_3">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor_joint_3">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<joint name="joint_4" type="revolute">
+		<origin rpy="0 0 0" xyz="0 0.1065 0"/> <!--Modifica la posicion respecto al link parent-->
+		<parent link="link3"/>
+		<child link="link4"/>
+		<axis xyz="0 0 1"/>
+		<limit effort="1000" lower="-3.1416" upper="3.1416" velocity="2.618"/>
+	</joint>
+	<!--Definicion del tipo de controlador-->
+	<transmission name="trans_joint_4">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="joint_4">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor_joint_4">
+			<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+</robot>

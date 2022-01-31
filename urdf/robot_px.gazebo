@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<!-- ros_control plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/robot_px</robotNamespace> <!-- Debe coincidir con el config -->
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo>
+
+	<!-- Base -->
+  <gazebo reference="base_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!-- Link1 -->
+  <gazebo reference="link1">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <!-- Link2 -->
+  <gazebo reference="link2">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <!-- Link3 -->
+  <gazebo reference="link3">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <!-- Link4 -->
+  <gazebo reference="link4">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+</robot>
